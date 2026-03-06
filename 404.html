@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Page not found — BrainBox Ecom Lab." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — BrainBox Ecom Lab</title>
+  <link rel="icon" type="image/png" href="B.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C; --gold-light: #E8C96A; --gold-dim: #8B6914;
+      --gold-glow: rgba(201,168,76,0.15); --black: #050505;
+      --surface: #0D0D0D; --surface-2: #141414;
+      --border: rgba(201,168,76,0.12); --text: #F0EDE6; --text-muted: #8A8780;
+      --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    }
+    html, body { height: 100%; }
+    body {
+      background: var(--black); color: var(--text);
+      font-family: var(--font-body); font-weight: 300;
+      overflow: hidden; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 100vh; text-align: center; padding: 2rem;
+    }
+
+    /* Noise overlay */
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+
+    /* Grid bg */
+    .bg-grid {
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+      z-index: 0;
+    }
+
+    /* Glow */
+    .bg-glow {
+      position: fixed; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .content { position: relative; z-index: 1; max-width: 520px; }
+
+    /* Big 404 */
+    .num-404 {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 18vw, 12rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 0.9;
+      color: transparent;
+      background: linear-gradient(160deg, rgba(201,168,76,0.6) 0%, rgba(201,168,76,0.15) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      border: 1px solid var(--border); padding: 0.4rem 1rem;
+      border-radius: 100px; margin-bottom: 1.5rem;
+      background: var(--gold-glow);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800; letter-spacing: -0.025em;
+      margin-bottom: 0.75rem; line-height: 1.1;
+    }
+    h1 em { font-style: normal; color: var(--gold); }
+
+    p {
+      font-size: 0.95rem; color: var(--text-muted);
+      line-height: 1.75; margin-bottom: 2.5rem; max-width: 380px; margin-left: auto; margin-right: auto;
+    }
+
+    .actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-gold {
+      background: var(--gold); color: #0a0700;
+      padding: 0.85rem 1.75rem; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.02em;
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: 0.4rem; transition: all 0.25s;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+
+    .btn-outline {
+      background: transparent; color: var(--text-muted);
+      padding: 0.85rem 1.75rem; border-radius: 6px;
+      font-weight: 400; font-size: 0.9rem;
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: 0.4rem;
+      border: 1px solid var(--border); transition: all 0.25s;
+    }
+    .btn-outline:hover { color: var(--text); border-color: rgba(201,168,76,0.35); }
+
+    /* Quick links */
+    .quick-links {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    }
+    .quick-link {
+      font-size: 0.82rem; color: var(--text-muted);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .quick-link:hover { color: var(--gold); }
+
+    /* Brand */
+    .brand {
+      position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+      letter-spacing: -0.02em; color: var(--text); text-decoration: none; z-index: 10;
+    }
+    .brand span { color: var(--gold); }
+
+    /* Countdown redirect */
+    .redirect-note {
+      margin-top: 2rem;
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+    .redirect-note span { color: var(--gold); font-weight: 600; }
+
+    @media (max-width: 500px) {
+      .actions { flex-direction: column; align-items: center; }
+      .btn-gold, .btn-outline { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <a href="index.html" class="brand">Brain<span>Box</span> Ecom Lab</a>
+
+  <div class="content">
+    <div class="num-404">404</div>
+
+    <div class="eyebrow">Page Not Found</div>
+
+    <h1>You've Gone <em>Off-Route</em></h1>
+    <p>The page you're looking for doesn't exist or may have been moved. Let's get you back to building your e-commerce business.</p>
+
+    <div class="actions">
+      <a href="index.html" class="btn-gold">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Go Home
+      </a>
+      <a href="apply.html" class="btn-outline">
+        Apply for Mentorship →
+      </a>
+    </div>
+
+    <div class="quick-links">
+      <a href="results.html" class="quick-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        Student Results
+      </a>
+      <a href="contact.html" class="quick-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        Contact Us
+      </a>
+      <a href="index.html#pricing" class="quick-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Pricing
+      </a>
+    </div>
+
+    <div style="font-size:0.72rem;color:var(--text-muted);margin-top:1.5rem;">© 2026 BrainBox Ecom Lab. All rights reserved.</div>
+    <div class="redirect-note">Redirecting to home in <span id="countdown">10</span>s</div>
+  </div>
+
+  <script>
+    // Auto-redirect countdown
+    let count = 10;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      count--;
+      el.textContent = count;
+      if (count <= 0) {
+        clearInterval(timer);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+  </script>
+  <footer style="background:var(--surface,#0D0D0D);border-top:1px solid rgba(201,168,76,0.12);padding:2rem 0;text-align:center;font-size:0.8rem;color:#8A8780;">
+    © 2026 BrainBox Ecom Lab. All rights reserved. &nbsp;·&nbsp; <a href="index.html" style="color:#C9A84C;text-decoration:none;">Back to Home</a>
+  </footer>
+  <script>
+    // Auto-hide nav on scroll down, reveal on scroll up
+    (function() {
+      var lastY = 0;
+      var nav = document.querySelector('nav');
+      if (!nav) return;
+      var navH = nav.offsetHeight || 72;
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var y = window.scrollY;
+            if (y > navH) {
+              if (y > lastY) { nav.style.transform = 'translateY(-100%)'; }
+              else            { nav.style.transform = 'translateY(0)'; }
+            } else { nav.style.transform = ''; }
+            lastY = y; ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

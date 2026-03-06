@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — BrainBox Ecom Lab</title>
+  <meta name="description" content="Apply for BrainBox Ecom Lab Mentorship. Limited spots available each month." />
+  <link rel="icon" type="image/png" href="B.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C; --gold-light: #E8C96A; --gold-dim: #8B6914;
+      --gold-glow: rgba(201,168,76,0.15); --black: #050505;
+      --surface: #0D0D0D; --surface-2: #141414;
+      --border: rgba(201,168,76,0.12); --text: #F0EDE6;
+      --text-muted: #8A8780; --error: #e05c5c; --success: #4caf82;
+      --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; line-height: 1.7; min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
+    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--black); } ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* SPOTS BAR */
+    .spots-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 101; background: linear-gradient(90deg,#120e00,#1a1200,#120e00); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 0.6rem 1rem; text-align: center; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.03em; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .spots-bar span { color: var(--gold); font-weight: 600; }
+
+    /* NAV */
+    nav { position: fixed; top: 36px; left: 0; right: 0; z-index: 100; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(5,5,5,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); 
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s;
+    }
+    .nav-logo { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-back { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* LAYOUT */
+    .page { padding-top: 108px; }
+    .page-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; padding: 5rem 0 6rem; align-items: start; }
+
+    /* LEFT PANEL */
+    .left-panel { position: sticky; top: 130px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; background: var(--gold-glow); }
+    .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+    h1 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
+    h1 em { font-style: normal; color: var(--gold); }
+    .left-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 380px; }
+
+    .perks { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+    .perk { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .perk-icon { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; margin-top: 0.1rem; }
+    .perk-text { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
+    .perk-text strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 0.1rem; }
+
+    .guarantee-box { border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; background: var(--surface); display: flex; align-items: center; gap: 1rem; }
+    .guarantee-icon { color: var(--gold); flex-shrink: 0; }
+    .guarantee-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+    .guarantee-text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+    /* FORM CARD */
+    .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+    .form-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .form-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.8rem 1rem;
+      color: var(--text); font-family: var(--font-body); font-size: 0.9rem; font-weight: 300;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(201,168,76,0.5); box-shadow: 0 0 0 3px rgba(201,168,76,0.07); }
+    .form-group input.error, .form-group select.error, .form-group textarea.error { border-color: var(--error); }
+    .form-group .error-msg { font-size: 0.75rem; color: var(--error); display: none; }
+    .form-group.has-error .error-msg { display: block; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8780' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+    .form-group select option { background: #141414; color: var(--text); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .plan-selector { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; margin-bottom: 1.25rem; }
+    .plan-opt { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.2s; text-align: center; }
+    .plan-opt:hover { border-color: rgba(201,168,76,0.3); }
+    .plan-opt.selected { border-color: var(--gold); background: var(--gold-glow); }
+    .plan-opt-name { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .plan-opt-price { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gold); }
+    input[type="hidden"] {}
+
+    .form-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+
+    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); flex-shrink: 0; margin-top: 3px; cursor: pointer; }
+    .checkbox-group label { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; cursor: pointer; }
+    .checkbox-group label a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+    .submit-btn { width: 100%; padding: 1rem; background: var(--gold); color: #0a0700; border: none; border-radius: 8px; font-family: var(--font-body); font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; letter-spacing: 0.02em; }
+    .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    .submit-btn .spinner { width: 18px; height: 18px; border: 2px solid rgba(10,7,0,0.3); border-top-color: #0a0700; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    .submit-btn.loading .spinner { display: block; }
+    .submit-btn.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* SUCCESS STATE */
+    .success-state { display: none; text-align: center; padding: 3rem 2rem; }
+    .success-state.show { display: block; }
+    .form-card.submitted .form-content { display: none; }
+    .form-card.submitted .success-state { display: block; }
+    .success-icon { width: 64px; height: 64px; background: rgba(76,175,130,0.15); border: 1px solid rgba(76,175,130,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--success); }
+    .success-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .success-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; max-width: 340px; margin: 0 auto 2rem; }
+    .success-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .success-link { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: all 0.2s; background: var(--surface-2); }
+    .success-link:hover { border-color: rgba(201,168,76,0.3); color: var(--text); }
+
+    /* FLOATING WA */
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
+    .wa-bubble { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-muted); max-width: 200px; line-height: 1.5; opacity: 0; transform: translateY(8px) scale(0.95); transition: all 0.3s; pointer-events: none; }
+    .wa-bubble.visible { opacity: 1; transform: translateY(0) scale(1); }
+    .wa-btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,0.35); text-decoration: none; transition: all 0.25s; animation: wa-pulse 3s ease-in-out infinite; }
+    .wa-btn:hover { transform: scale(1.1); }
+    @keyframes wa-pulse { 0%,100%{box-shadow:0 8px 30px rgba(37,211,102,0.35)} 50%{box-shadow:0 8px 40px rgba(37,211,102,0.6)} }
+
+    /* FOOTER */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--font-display); font-weight: 800; font-size: 1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) { .page-inner { grid-template-columns: 1fr; gap: 2.5rem; } .left-panel { position: static; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .container { padding: 0 1.25rem; } .plan-selector { grid-template-columns: 1fr; } .form-card { padding: 1.5rem; } .footer-inner { flex-direction: column; align-items: flex-start; } }
+
+    /* HAMBURGER + MOBILE MENU */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 108px; left: 0; right: 0; z-index: 99; background: rgba(5,5,5,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 2rem; flex-direction: column; gap: 1.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1.1rem; transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--text); }
+    @media (max-width: 900px) { .hamburger { display: flex; } }
+  </style>
+</head>
+<body>
+  <div class="spots-bar">🔥 Only <span id="spots-count">4 spots</span> remaining this month</div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Brain<span>Box</span> Ecom Lab</a>
+    <a href="index.html" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+  <div class="page">
+    <div class="container">
+      <div class="page-inner">
+
+        <!-- LEFT PANEL -->
+        <div class="left-panel reveal">
+          <div class="eyebrow">Limited Spots</div>
+          <h1>Apply for<br /><em>Mentorship</em></h1>
+          <p class="left-desc">Fill in the form honestly — we review every application and only accept students we're confident we can help scale.</p>
+
+          <div class="perks">
+            <div class="perk">
+              <div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+              <div class="perk-text"><strong>Personal Review</strong>Every application is reviewed by the mentor directly — not automated.</div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+              <div class="perk-text"><strong>Response Within 24hrs</strong>You'll hear back via WhatsApp or email within one business day.</div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+              <div class="perk-text"><strong>Your Info is Private</strong>We never share or sell your personal information. Ever.</div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+              <div class="perk-text"><strong>Join 500+ Students</strong>You'll be added to a private community of active e-commerce entrepreneurs.</div>
+            </div>
+          </div>
+
+          <div class="guarantee-box">
+            <div class="guarantee-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="guarantee-text">
+              <strong>30-Day Money-Back Guarantee</strong>
+              Follow the program fully and don't see results — we refund you completely, no questions asked.
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-card reveal">
+          <div class="form-content">
+            <div class="form-title">Your Application</div>
+            <div class="form-subtitle">Takes about 3 minutes to complete. Be honest — it helps us help you better.</div>
+
+            <!--
+              SETUP INSTRUCTIONS:
+              1. Go to https://formspree.io and create a free account
+              2. Create a new form and copy your form ID (looks like: xpzgkwqr)
+              3. Replace xjgezknq below with your actual ID
+              That's it — submissions go straight to your email, hosted 100% on GitHub.
+            -->
+            <form id="applyForm" action="https://formspree.io/f/xjgezknq" method="POST" novalidate>
+
+              <div class="form-row">
+                <div class="form-group" id="group-fname">
+                  <label>First Name *</label>
+                  <input type="text" name="first_name" id="fname" placeholder="Ahmed" />
+                  <span class="error-msg">Please enter your first name</span>
+                </div>
+                <div class="form-group" id="group-lname">
+                  <label>Last Name *</label>
+                  <input type="text" name="last_name" id="lname" placeholder="Hassan" />
+                  <span class="error-msg">Please enter your last name</span>
+                </div>
+              </div>
+
+              <div class="form-group" id="group-email">
+                <label>Email Address *</label>
+                <input type="email" name="email" id="email" placeholder="you@example.com" />
+                <span class="error-msg">Please enter a valid email address</span>
+              </div>
+
+              <div class="form-group" id="group-whatsapp">
+                <label>WhatsApp Number *</label>
+                <input type="tel" name="whatsapp" id="whatsapp" placeholder="+1 234 567 8900" />
+                <span class="error-msg">Please enter your WhatsApp number</span>
+              </div>
+
+              <div class="form-group" id="group-country">
+                <label>Country *</label>
+                <select name="country" id="country">
+<option value="">Select your country...</option>
+                  <option>Afghanistan</option>
+                  <option>Albania</option>
+                  <option>Algeria</option>
+                  <option>Andorra</option>
+                  <option>Angola</option>
+                  <option>Antigua and Barbuda</option>
+                  <option>Argentina</option>
+                  <option>Armenia</option>
+                  <option>Australia</option>
+                  <option>Austria</option>
+                  <option>Azerbaijan</option>
+                  <option>Bahamas</option>
+                  <option>Bahrain</option>
+                  <option>Bangladesh</option>
+                  <option>Barbados</option>
+                  <option>Belarus</option>
+                  <option>Belgium</option>
+                  <option>Belize</option>
+                  <option>Benin</option>
+                  <option>Bhutan</option>
+                  <option>Bolivia</option>
+                  <option>Bosnia and Herzegovina</option>
+                  <option>Botswana</option>
+                  <option>Brazil</option>
+                  <option>Brunei</option>
+                  <option>Bulgaria</option>
+                  <option>Burkina Faso</option>
+                  <option>Burundi</option>
+                  <option>Cabo Verde</option>
+                  <option>Cambodia</option>
+                  <option>Cameroon</option>
+                  <option>Canada</option>
+                  <option>Central African Republic</option>
+                  <option>Chad</option>
+                  <option>Chile</option>
+                  <option>China</option>
+                  <option>Colombia</option>
+                  <option>Comoros</option>
+                  <option>Congo (Brazzaville)</option>
+                  <option>Congo (Kinshasa)</option>
+                  <option>Costa Rica</option>
+                  <option>Croatia</option>
+                  <option>Cuba</option>
+                  <option>Cyprus</option>
+                  <option>Czech Republic</option>
+                  <option>Denmark</option>
+                  <option>Djibouti</option>
+                  <option>Dominica</option>
+                  <option>Dominican Republic</option>
+                  <option>Ecuador</option>
+                  <option>Egypt</option>
+                  <option>El Salvador</option>
+                  <option>Equatorial Guinea</option>
+                  <option>Eritrea</option>
+                  <option>Estonia</option>
+                  <option>Eswatini</option>
+                  <option>Ethiopia</option>
+                  <option>Fiji</option>
+                  <option>Finland</option>
+                  <option>France</option>
+                  <option>Gabon</option>
+                  <option>Gambia</option>
+                  <option>Georgia</option>
+                  <option>Germany</option>
+                  <option>Ghana</option>
+                  <option>Greece</option>
+                  <option>Grenada</option>
+                  <option>Guatemala</option>
+                  <option>Guinea</option>
+                  <option>Guinea-Bissau</option>
+                  <option>Guyana</option>
+                  <option>Haiti</option>
+                  <option>Honduras</option>
+                  <option>Hungary</option>
+                  <option>Iceland</option>
+                  <option>India</option>
+                  <option>Indonesia</option>
+                  <option>Iran</option>
+                  <option>Iraq</option>
+                  <option>Ireland</option>
+                  <option>Israel</option>
+                  <option>Italy</option>
+                  <option>Jamaica</option>
+                  <option>Japan</option>
+                  <option>Jordan</option>
+                  <option>Kazakhstan</option>
+                  <option>Kenya</option>
+                  <option>Kiribati</option>
+                  <option>Kuwait</option>
+                  <option>Kyrgyzstan</option>
+                  <option>Laos</option>
+                  <option>Latvia</option>
+                  <option>Lebanon</option>
+                  <option>Lesotho</option>
+                  <option>Liberia</option>
+                  <option>Libya</option>
+                  <option>Liechtenstein</option>
+                  <option>Lithuania</option>
+                  <option>Luxembourg</option>
+                  <option>Madagascar</option>
+                  <option>Malawi</option>
+                  <option>Malaysia</option>
+                  <option>Maldives</option>
+                  <option>Mali</option>
+                  <option>Malta</option>
+                  <option>Marshall Islands</option>
+                  <option>Mauritania</option>
+                  <option>Mauritius</option>
+                  <option>Mexico</option>
+                  <option>Micronesia</option>
+                  <option>Moldova</option>
+                  <option>Monaco</option>
+                  <option>Mongolia</option>
+                  <option>Montenegro</option>
+                  <option>Morocco</option>
+                  <option>Mozambique</option>
+                  <option>Myanmar</option>
+                  <option>Namibia</option>
+                  <option>Nauru</option>
+                  <option>Nepal</option>
+                  <option>Netherlands</option>
+                  <option>New Zealand</option>
+                  <option>Nicaragua</option>
+                  <option>Niger</option>
+                  <option>Nigeria</option>
+                  <option>North Korea</option>
+                  <option>North Macedonia</option>
+                  <option>Norway</option>
+                  <option>Oman</option>
+                  <option>Pakistan</option>
+                  <option>Palau</option>
+                  <option>Palestine</option>
+                  <option>Panama</option>
+                  <option>Papua New Guinea</option>
+                  <option>Paraguay</option>
+                  <option>Peru</option>
+                  <option>Philippines</option>
+                  <option>Poland</option>
+                  <option>Portugal</option>
+                  <option>Qatar</option>
+                  <option>Romania</option>
+                  <option>Russia</option>
+                  <option>Rwanda</option>
+                  <option>Saint Kitts and Nevis</option>
+                  <option>Saint Lucia</option>
+                  <option>Saint Vincent and the Grenadines</option>
+                  <option>Samoa</option>
+                  <option>San Marino</option>
+                  <option>Sao Tome and Principe</option>
+                  <option>Saudi Arabia</option>
+                  <option>Senegal</option>
+                  <option>Serbia</option>
+                  <option>Seychelles</option>
+                  <option>Sierra Leone</option>
+                  <option>Singapore</option>
+                  <option>Slovakia</option>
+                  <option>Slovenia</option>
+                  <option>Solomon Islands</option>
+                  <option>Somalia</option>
+                  <option>South Africa</option>
+                  <option>South Korea</option>
+                  <option>South Sudan</option>
+                  <option>Spain</option>
+                  <option>Sri Lanka</option>
+                  <option>Sudan</option>
+                  <option>Suriname</option>
+                  <option>Sweden</option>
+                  <option>Switzerland</option>
+                  <option>Syria</option>
+                  <option>Taiwan</option>
+                  <option>Tajikistan</option>
+                  <option>Tanzania</option>
+                  <option>Thailand</option>
+                  <option>Timor-Leste</option>
+                  <option>Togo</option>
+                  <option>Tonga</option>
+                  <option>Trinidad and Tobago</option>
+                  <option>Tunisia</option>
+                  <option>Turkey</option>
+                  <option>Turkmenistan</option>
+                  <option>Tuvalu</option>
+                  <option>Uganda</option>
+                  <option>Ukraine</option>
+                  <option>United Arab Emirates</option>
+                  <option>United Kingdom</option>
+                  <option>United States</option>
+                  <option>Uruguay</option>
+                  <option>Uzbekistan</option>
+                  <option>Vanuatu</option>
+                  <option>Vatican City</option>
+                  <option>Venezuela</option>
+                  <option>Vietnam</option>
+                  <option>Yemen</option>
+                  <option>Zambia</option>
+                  <option>Zimbabwe</option>
+                </select>
+                <span class="error-msg">Please select your country</span>
+              </div>
+
+              <div class="form-group" id="group-experience">
+                <label>E-Commerce Experience *</label>
+                <select name="experience" id="experience">
+                  <option value="">Select your level...</option>
+                  <option>Complete beginner — never sold online</option>
+                  <option>Some experience — tried but no consistent results</option>
+                  <option>Intermediate — making some sales but not scaling</option>
+                  <option>Advanced — already doing $1K+/month, want to scale faster</option>
+                </select>
+                <span class="error-msg">Please select your experience level</span>
+              </div>
+
+              <!-- Plan Selector -->
+              <div class="form-group">
+                <label>Which Plan Are You Interested In? *</label>
+                <div class="plan-selector">
+                  <div class="plan-opt" onclick="selectPlan(this,'Starter')" id="plan-starter">
+                    <div class="plan-opt-name">Starter</div>
+                    <div class="plan-opt-price">$350</div>
+                  </div>
+                  <div class="plan-opt selected" onclick="selectPlan(this,'Pro')" id="plan-pro">
+                    <div class="plan-opt-name">Pro</div>
+                    <div class="plan-opt-price">$700</div>
+                  </div>
+                  <div class="plan-opt" onclick="selectPlan(this,'Elite')" id="plan-elite">
+                    <div class="plan-opt-name">Elite</div>
+                    <div class="plan-opt-price">Custom</div>
+                  </div>
+                </div>
+                <input type="hidden" name="plan" id="plan-hidden" value="Pro" />
+              </div>
+
+              <div class="form-group" id="group-budget">
+                <label>Monthly Ad Budget *</label>
+                <select name="ad_budget" id="budget">
+                  <option value="">Select your budget...</option>
+                  <option>Under $200/month</option>
+                  <option>$200 – $500/month</option>
+                  <option>$500 – $1,000/month</option>
+                  <option>$1,000 – $3,000/month</option>
+                  <option>$3,000+/month</option>
+                </select>
+                <span class="error-msg">Please select your budget range</span>
+              </div>
+
+              <div class="form-group" id="group-goal">
+                <label>What's Your #1 Goal? *</label>
+                <textarea name="goal" id="goal" placeholder="e.g. I want to hit $5K/month within 3 months using dropshipping so I can quit my 9-5..."></textarea>
+                <span class="error-msg">Please share your goal</span>
+              </div>
+
+              <div class="form-group" id="group-other-experience">
+                <label>Any Other Relevant Experience? <span style="color:var(--text-muted);font-weight:300;text-transform:none;font-size:0.75rem;">(optional)</span></label>
+                <textarea name="other_experience" id="other_experience" placeholder="e.g. I've run Facebook ads before, managed a Shopify store, worked in sales, tried Amazon FBA, built social media pages — share anything you think is relevant..." style="min-height:90px;"></textarea>
+              </div>
+
+              <div class="form-group" id="group-social">
+                <label>Social Media Handle <span style="color:var(--text-muted);font-weight:300;text-transform:none;font-size:0.75rem;">(if no WhatsApp)</span></label>
+                <input type="text" name="social_handle" id="social_handle" placeholder="e.g. @yourname on Instagram, TikTok, Telegram, Discord..." />
+                <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.35rem;line-height:1.5;">Only needed if you don't have WhatsApp — we'll reach out on whichever platform you use.</div>
+              </div>
+
+              <div class="form-group" id="group-heard">
+                <label>How Did You Hear About Us?</label>
+                <select name="referral" id="heard">
+                  <option value="">Select one...</option>
+                  <option>Instagram</option><option>WhatsApp</option><option>Discord</option><option>Telegram</option><option>TikTok</option><option>Friend / Referral</option><option>Google Search</option><option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-divider"></div>
+
+              <div class="checkbox-group" id="group-terms">
+                <input type="checkbox" id="terms" name="agreed_terms" value="yes" />
+                <label for="terms">I have read and agree to the <a href="terms.html" target="_blank">Terms & Conditions</a>, <a href="terms.html" target="_blank">Privacy Policy</a>, and <a href="refund.html" target="_blank">Refund Policy</a>.</label>
+              </div>
+
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <div class="spinner"></div>
+                <span class="btn-text">Submit Application →</span>
+              </button>
+
+            </form>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="success-state">
+            <div class="success-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="success-title">Application Received!</div>
+            <p class="success-desc">Thank you for applying to BrainBox Ecom Lab. We'll review your application and get back to you within 24 hours via WhatsApp or email.</p>
+            <div class="success-links">
+              <a href="https://wa.link/orsgt5" target="_blank" class="success-link">
+                <svg width="16" height="16" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Message us on WhatsApp while you wait
+              </a>
+              <a href="index.html" class="success-link">← Back to Home</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Brain<span>Box</span> Ecom Lab</div>
+          <div class="footer-copy">© 2026 BrainBox Ecom Lab. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- FLOATING WA -->
+  <div class="wa-float">
+    <div class="wa-bubble" id="wa-bubble">💬 Have a question before applying? Chat with us!</div>
+    <a href="https://wa.link/orsgt5" target="_blank" class="wa-btn" aria-label="WhatsApp">
+      <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // Spots
+    const spots = Math.floor(Math.random()*3)+3;
+    document.getElementById('spots-count').textContent = spots+' spot'+(spots===1?'':'s');
+
+    // WA bubble
+    setTimeout(()=>{ document.getElementById('wa-bubble').classList.add('visible'); },4000);
+
+    // Plan selector
+    function selectPlan(el, name) {
+      document.querySelectorAll('.plan-opt').forEach(p => p.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('plan-hidden').value = name;
+    }
+
+    // Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }),{threshold:0.1});
+    reveals.forEach(el=>io.observe(el));
+
+    // Form validation + submit
+    const form = document.getElementById('applyForm');
+    const btn = document.getElementById('submitBtn');
+
+    function validateField(id, groupId, check) {
+      const el = document.getElementById(id);
+      const group = document.getElementById(groupId);
+      const valid = check(el.value.trim());
+      group.classList.toggle('has-error', !valid);
+      el.classList.toggle('error', !valid);
+      return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let valid = true;
+      valid = validateField('fname','group-fname', v=>v.length>0) && valid;
+      valid = validateField('lname','group-lname', v=>v.length>0) && valid;
+      valid = validateField('email','group-email', v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) && valid;
+      valid = validateField('whatsapp','group-whatsapp', v=>v.length>6) && valid;
+      valid = validateField('country','group-country', v=>v!=='') && valid;
+      valid = validateField('experience','group-experience', v=>v!=='') && valid;
+      valid = validateField('budget','group-budget', v=>v!=='') && valid;
+      valid = validateField('goal','group-goal', v=>v.length>10) && valid;
+
+      const terms = document.getElementById('terms');
+      const termsGroup = document.getElementById('group-terms');
+      if (!terms.checked) { termsGroup.style.outline = '1px solid var(--error)'; termsGroup.style.borderRadius = '6px'; termsGroup.style.padding = '0.5rem'; valid = false; }
+      else { termsGroup.style.outline = ''; termsGroup.style.padding = ''; }
+
+      if (!valid) { form.querySelector('.has-error')?.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method:'POST', body: data, headers:{'Accept':'application/json'} });
+        if (res.ok) {
+          document.querySelector('.form-card').classList.add('submitted');
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        alert('Something went wrong. Please try submitting again or contact us on WhatsApp.');
+      }
+    });
+
+    // Live validation on blur
+    ['fname','lname','email','whatsapp'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.addEventListener('blur',()=> {
+        const group = document.getElementById('group-'+id);
+        if(group && group.classList.contains('has-error')) {
+          validateField(id,'group-'+id,v=>v.length>0);
+        }
+      });
+    });
+  </script>
+
+  <script>
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      }));
+    }
+
+    // Auto-hide nav on scroll down, reveal on scroll up
+    (function() {
+      var lastY = 0;
+      var nav = document.querySelector('nav');
+      var navH = nav ? nav.offsetHeight : 72;
+      var ticking = false;
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var y = window.scrollY;
+            if (y > navH) {
+              if (y > lastY) {
+                if (nav) nav.style.transform = 'translateY(-100%)';
+              } else {
+                if (nav) nav.style.transform = 'translateY(0)';
+              }
+            } else {
+              if (nav) nav.style.transform = '';
+            }
+            lastY = y;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
