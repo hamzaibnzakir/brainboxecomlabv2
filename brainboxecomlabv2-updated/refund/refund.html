@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="BrainBox Ecom Lab Refund Policy — 30-day money-back guarantee." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Policy — BrainBox Ecom Lab</title>
+  <link rel="icon" type="image/png" href="B.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box;margin:0;padding:0; }
+    :root { --gold:#C9A84C;--gold-light:#E8C96A;--gold-dim:#8B6914;--gold-glow:rgba(201,168,76,0.15);--black:#050505;--surface:#0D0D0D;--surface-2:#141414;--border:rgba(201,168,76,0.12);--text:#F0EDE6;--text-muted:#8A8780;--success:#4caf82;--font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif; }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--text);font-family:var(--font-body);font-weight:300;overflow-x:hidden;line-height:1.7;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+    .container{max-width:820px;margin:0 auto;padding:0 2rem}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s;
+    }
+    .nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.2rem;letter-spacing:-0.02em;color:var(--text);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-back{font-size:0.85rem;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s}
+    .nav-back:hover{color:var(--gold)}
+
+    .page{padding-top:72px;padding-bottom:6rem}
+
+    .doc-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    .doc-label{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+    .doc-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.75rem}
+    .doc-title em{font-style:normal;color:var(--gold)}
+    .doc-meta{font-size:0.8rem;color:var(--text-muted)}
+
+    /* HERO GUARANTEE CARD */
+    .guarantee-hero{background:linear-gradient(160deg,#120e00 0%,#0d0d0d 60%);border:1px solid var(--gold);border-radius:16px;padding:2.5rem;text-align:center;margin-bottom:3rem;position:relative;overflow:hidden}
+    .guarantee-hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .guarantee-num{font-family:var(--font-display);font-size:5rem;font-weight:800;color:var(--gold);line-height:1;letter-spacing:-0.04em;margin-bottom:0.25rem}
+    .guarantee-label{font-size:1.1rem;font-weight:600;margin-bottom:0.75rem}
+    .guarantee-desc{font-size:0.9rem;color:var(--text-muted);max-width:420px;margin:0 auto;line-height:1.7}
+
+    /* STEPS */
+    .steps{display:flex;flex-direction:column;gap:0;margin:2.5rem 0}
+    .step{display:flex;gap:1.5rem;padding-bottom:2rem;position:relative}
+    .step::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--border)}
+    .step:last-child::before{display:none}
+    .step-num{width:40px;height:40px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:var(--gold)}
+    .step-title{font-weight:600;font-size:0.95rem;margin-bottom:0.35rem}
+    .step-desc{font-size:0.875rem;color:var(--text-muted);line-height:1.7}
+
+    .doc-body h2{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);margin:2.5rem 0 0.75rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+    .doc-body h2:first-child{margin-top:0;padding-top:0;border-top:none}
+    .doc-body p{font-size:0.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
+    .doc-body ul{margin:0.5rem 0 1rem 1.25rem;display:flex;flex-direction:column;gap:0.5rem}
+    .doc-body ul li{font-size:0.9rem;color:var(--text-muted);line-height:1.7}
+    .doc-body strong{color:var(--text);font-weight:500}
+    .doc-body a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+    .highlight-box{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0}
+    .highlight-box p{margin:0;font-size:0.875rem}
+
+    .eligibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .elig-card{border:1px solid var(--border);border-radius:10px;padding:1.25rem;background:var(--surface)}
+    .elig-card-title{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem}
+    .elig-card.yes .elig-card-title{color:var(--success)}
+    .elig-card.no .elig-card-title{color:#e05c5c}
+    .elig-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.5rem}
+    .elig-card ul li{font-size:0.83rem;color:var(--text-muted);display:flex;gap:0.5rem;align-items:flex-start;line-height:1.5}
+    .elig-card.yes ul li::before{content:'✓';color:var(--success);font-weight:700;flex-shrink:0}
+    .elig-card.no ul li::before{content:'✕';color:#e05c5c;font-weight:700;flex-shrink:0}
+
+    .contact-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;display:flex;align-items:center;gap:1.5rem;margin-top:2.5rem}
+    .contact-box-icon{color:var(--gold);flex-shrink:0}
+    .contact-box-title{font-weight:600;font-size:0.95rem;margin-bottom:0.35rem}
+    .contact-box-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
+    .contact-box-desc a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+    footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5rem 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:var(--font-display);font-weight:800;font-size:1rem}
+    .footer-brand span{color:var(--gold)}
+    .footer-copy{font-size:0.8rem;color:var(--text-muted)}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{font-size:0.8rem;color:var(--text-muted);text-decoration:none}
+    .footer-links a:hover{color:var(--gold)}
+
+    @media(max-width:600px){.container{padding:0 1.25rem}.eligibility-grid{grid-template-columns:1fr}.contact-box{flex-direction:column;align-items:flex-start}.footer-inner{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">Brain<span>Box</span> Ecom Lab</a>
+    <a href="/" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
+  </nav>
+
+  <div class="page">
+    <div class="container">
+
+      <div class="doc-header">
+        <div class="doc-label">Legal Document</div>
+        <div class="doc-title">Refund <em>Policy</em></div>
+        <div class="doc-meta">Last updated: February 2026 &nbsp;·&nbsp; Applies to all BrainBox Ecom Lab plans</div>
+      </div>
+
+      <!-- HERO GUARANTEE -->
+      <div class="guarantee-hero">
+        <div class="guarantee-num">30</div>
+        <div class="guarantee-label">Day Money-Back Guarantee</div>
+        <p class="guarantee-desc">We stand fully behind the quality of our mentorship. If you follow the program and don't see progress within 30 days, we will refund your full payment — no questions, no stress.</p>
+      </div>
+
+      <!-- HOW TO CLAIM -->
+      <div class="doc-label" style="margin-bottom:1rem;">How to Claim a Refund</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Reach Out Within 30 Days</div>
+            <p class="step-desc">Contact us within 30 days of your enrollment date via email at <a href="/cdn-cgi/l/email-protection#d5b4b1b8bcbb95b7a7b4bcbbb7baadb0b6bab8fba5a7ba"><span class="__cf_email__" data-cfemail="f091949d999eb0928291999e929f8895939f9dde80829f">[email&#160;protected]</span></a> or <a href="https://wa.link/orsgt5" target="_blank">WhatsApp</a>. Include your full name and the email address used to enroll.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Show You Engaged with the Program</div>
+            <p class="step-desc">To qualify, you must demonstrate that you genuinely followed the mentorship guidance — attended calls, attempted the recommended steps, and communicated with your mentor about challenges you faced.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">We Process Your Refund</div>
+            <p class="step-desc">Once eligibility is confirmed, we process your refund within <strong>5–10 business days</strong> back to the original payment method. You'll receive a confirmation once complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-body">
+        <h2>Refund Eligibility</h2>
+        <p>Our 30-day money-back guarantee is designed to protect students who genuinely try the program. The following table clarifies what qualifies and what doesn't:</p>
+
+        <div class="eligibility-grid">
+          <div class="elig-card yes">
+            <div class="elig-card-title">✓ You Qualify If You...</div>
+            <ul>
+              <li>Applied the strategies with genuine effort</li>
+              <li>Attended mentorship sessions or responded to your mentor</li>
+              <li>Communicated challenges to your mentor before requesting a refund</li>
+              <li>Submit your refund request within 30 days of enrollment</li>
+            </ul>
+          </div>
+          <div class="elig-card no">
+            <div class="elig-card-title">✕ You Do Not Qualify If You...</div>
+            <ul>
+              <li>Have not engaged with the program material at all</li>
+              <li>Request a refund after the 30-day window has passed</li>
+              <li>Violated the program's Terms & Conditions</li>
+              <li>Shared or distributed any program content</li>
+              <li>Enrolled with no genuine intention to participate</li>
+            </ul>
+          </div>
+        </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Brain<span>Box</span> Ecom Lab</div>
+        <div class="footer-links">
+          <a href="/terms/">Terms &amp; Privacy</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 BrainBox Ecom Lab. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function() {
+      var lastY = 0, nav = document.querySelector('nav'), navH = nav ? nav.offsetHeight : 72, ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) { requestAnimationFrame(function() {
+          var y = window.scrollY;
+          if (y > navH) { nav.s
