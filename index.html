@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expert Services — BrainBox Ecom Lab</title>
-  <meta name="description" content="Need one specific thing done right? Get expert help with your store theme, creatives, sales funnel, LLC setup, ad accounts, and more — priced based on your needs." />
+  <title>BrainBox Ecom Lab — Scale Your Dropshipping Business</title>
+  <meta name="description" content="Join BrainBox Ecom Lab Mentorship and learn how to scale your dropshipping business to $1K+ days using expert strategies, AI tools, and automation." />
   <link rel="icon" type="image/png" href="B.png" />
+  <meta property="og:title" content="BrainBox Ecom Lab Mentorship" />
+  <meta property="og:description" content="Master e-commerce and scale your dropshipping business to $1K+ days with BrainBox Ecom Lab." />
+  <meta property="og:url" content="https://brainboxecom.pro/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://brainboxecom.pro/" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -29,6 +36,7 @@
     }
 
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--black);
       color: var(--text);
@@ -37,463 +45,828 @@
       overflow-x: hidden;
       line-height: 1.7;
     }
-
-    /* NOISE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: 0.5;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
     }
 
+    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
+    /* ── UTILITIES ── */
+    .gold { color: var(--gold); }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
     .section { padding: 7rem 0; }
-    .gold { color: var(--gold); }
+    .section-sm { padding: 4rem 0; }
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 0 2rem; height: 80px;
-      display: flex; align-items: center; justify-content: space-between;
+      position:sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: rgba(5,5,5,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      transition: transform 0.3s;
+      transition: background 0.3s;
     }
+
     .nav-logo {
-      font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
-      letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
     }
     .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
-      letter-spacing: 0.02em; transition: color 0.2s;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-links a.active { color: var(--gold); }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
     .btn-gold {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--gold); color: #0a0700;
-      padding: 0.65rem 1.5rem; border-radius: 6px; font-size: 0.9rem;
-      font-weight: 500; text-decoration: none; transition: all 0.25s;
+      background: var(--gold);
+      color: #0a0700;
+      padding: 0.65rem 1.5rem;
+      letter-spacing: 0.02em;
     }
     .btn-gold:hover {
-      background: var(--gold-light); transform: translateY(-1px);
+      background: var(--gold-light);
+      transform: translateY(-1px);
       box-shadow: 0 8px 30px rgba(201,168,76,0.3);
     }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; background: none; border: none; padding: 4px;
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--border);
     }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s; }
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
     .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
     .mobile-menu {
-      display: none; position: fixed; top: 80px; left: 0; right: 0;
-      background: rgba(5,5,5,0.98); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border); padding: 2rem;
-      flex-direction: column; gap: 1.5rem; z-index: 99;
+      display: none;
+      position: fixed;
+      top: 108px; left: 0; right: 0;
+      background: rgba(5,5,5,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 99;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1.1rem; }
 
     /* ── HERO ── */
     #hero {
-      min-height: 75vh; display: flex; align-items: center;
-      padding-top: 80px; position: relative; overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
     }
+
     .hero-grid {
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image:
         linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
       background-size: 50px 50px;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
     }
+
     .hero-glow {
-      position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 820px; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--gold);
-      border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 100px;
-      margin-bottom: 2rem; background: var(--gold-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      background: var(--gold-glow);
     }
     .eyebrow::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--gold); animation: pulse 2s ease-in-out infinite;
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
     }
+
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(0.8); }
     }
+
     h1 {
-      font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 5rem);
-      font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
     }
-    h1 em { font-style: normal; color: var(--gold); }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
     .hero-sub {
-      font-size: 1.1rem; color: var(--text-muted);
-      max-width: 580px; margin-bottom: 3rem; line-height: 1.85; font-weight: 300;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      font-weight: 300;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 4rem; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
     .btn-gold-lg {
-      background: var(--gold); color: #0a0700; padding: 0.9rem 2rem;
-      font-size: 0.95rem; font-weight: 600; border-radius: 6px; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.25s;
+      background: var(--gold);
+      color: #0a0700;
+      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s;
+      letter-spacing: 0.01em;
     }
     .btn-gold-lg:hover {
-      background: var(--gold-light); transform: translateY(-2px);
+      background: var(--gold-light);
+      transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(201,168,76,0.35);
     }
-    .btn-outline-lg {
-      background: transparent; color: var(--text-muted); padding: 0.9rem 2rem;
-      font-size: 0.95rem; border-radius: 6px; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1px solid var(--border); transition: all 0.25s;
-    }
-    .btn-outline-lg:hover { color: var(--text); border-color: rgba(201,168,76,0.4); }
 
-    /* Hero trust badges */
-    .hero-trust {
-      display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: center;
+    .btn-outline-lg {
+      background: transparent;
+      color: var(--text-muted);
+      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
     }
-    .trust-badge {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.82rem; color: var(--text-muted);
+    .btn-outline-lg:hover {
+      color: var(--text);
+      border-color: rgba(201,168,76,0.4);
     }
-    .trust-badge svg { color: var(--gold); flex-shrink: 0; }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      border-left: 1px solid var(--border);
+      padding-left: 1.25rem;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
     /* ── MARQUEE ── */
     .marquee-section {
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 1.2rem 0; overflow: hidden; background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 0;
+      overflow: hidden;
+      background: var(--surface);
     }
     .marquee-track {
-      display: flex; gap: 4rem;
-      animation: marquee 24s linear infinite; white-space: nowrap;
+      display: flex;
+      gap: 4rem;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
     }
     .marquee-track:hover { animation-play-state: paused; }
     .marquee-item {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--text-muted);
-      display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
-    .marquee-item::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
+    .marquee-item::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
 
-    /* ── SECTION COMMON ── */
+    /* ── SECTION TITLES ── */
     .section-label {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
     }
     h2 {
-      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
-    h2 em { font-style: normal; color: var(--gold); }
-    .section-desc { color: var(--text-muted); font-size: 1rem; max-width: 520px; line-height: 1.8; }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+      line-height: 1.8;
+    }
 
     /* ── HOW IT WORKS ── */
-    #how { background: var(--surface); }
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 12px;
-      overflow: hidden; margin-top: 4rem;
+    #how {
+      background: var(--surface);
     }
-    .step-card {
-      background: var(--surface); padding: 2.5rem;
-      position: relative; transition: background 0.3s;
-    }
-    .step-card:hover { background: var(--surface-2); }
-    .step-num {
-      font-family: var(--font-display); font-size: 4rem; font-weight: 800;
-      color: rgba(201,168,76,0.08); line-height: 1; margin-bottom: 1.5rem; letter-spacing: -0.04em;
-    }
-    .step-icon {
-      width: 44px; height: 44px; border: 1px solid var(--border);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.25rem; color: var(--gold);
-    }
-    .step-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
 
-    /* ── SERVICES GRID ── */
-    #services { background: var(--black); }
-    .services-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      flex-wrap: wrap; gap: 1.5rem; margin-bottom: 4rem;
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 4rem;
     }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .service-card {
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 2rem; background: var(--surface);
-      display: flex; flex-direction: column; gap: 0;
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .service-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0), transparent);
+
+    .step-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      position: relative;
       transition: background 0.3s;
     }
-    .service-card:hover {
-      border-color: rgba(201,168,76,0.3); transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-    .service-card:hover::before {
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .service-card.featured {
-      background: linear-gradient(160deg, #1a1400 0%, #0d0d0d 60%);
-      border-color: rgba(201,168,76,0.3);
-    }
-    .service-tag {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gold);
-      background: var(--gold-glow); border: 1px solid rgba(201,168,76,0.15);
-      padding: 0.25rem 0.7rem; border-radius: 100px;
-      margin-bottom: 1.25rem; width: fit-content;
-    }
-    .service-icon {
-      width: 48px; height: 48px; border: 1px solid var(--border);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      color: var(--gold); margin-bottom: 1.25rem; background: var(--surface-2);
-    }
-    .service-name {
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-      margin-bottom: 0.6rem; line-height: 1.3;
-    }
-    .service-desc {
-      font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; flex: 1;
-    }
-    .service-includes {
-      list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.75rem;
-    }
-    .service-includes li {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      font-size: 0.82rem; color: var(--text-muted);
-    }
-    .service-includes li::before {
-      content: '✓'; color: var(--gold); font-weight: 600; flex-shrink: 0; margin-top: 0.05rem;
-    }
-    .service-cta {
-      display: block; text-align: center; padding: 0.8rem;
-      border-radius: 6px; font-weight: 500; font-size: 0.875rem;
-      text-decoration: none; transition: all 0.25s; letter-spacing: 0.02em; margin-top: auto;
-    }
-    .service-cta-ghost {
-      border: 1px solid var(--border); color: var(--text-muted);
-    }
-    .service-cta-ghost:hover {
-      border-color: rgba(201,168,76,0.4); color: var(--text);
-    }
-    .service-cta-gold {
-      background: var(--gold); color: #0a0700;
-    }
-    .service-cta-gold:hover {
-      background: var(--gold-light);
-      box-shadow: 0 8px 30px rgba(201,168,76,0.3); transform: translateY(-1px);
-    }
-    .service-price-hint {
-      font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.6rem;
-    }
-    .service-price-hint span { color: var(--gold); }
+    .step-card:hover { background: var(--surface-2); }
 
-    /* ── CUSTOM REQUEST ── */
-    #custom { background: var(--surface); }
-    .custom-inner {
-      border: 1px solid var(--border); border-radius: 16px;
-      background: linear-gradient(160deg, #0f0b00 0%, #0d0d0d 60%);
-      overflow: hidden; position: relative;
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(201,168,76,0.08);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
     }
-    .custom-inner::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--gold);
     }
-    .custom-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
     }
-    .custom-left {
-      padding: 4rem; border-right: 1px solid var(--border);
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
     }
-    .custom-right { padding: 4rem; }
 
-    .custom-left h2 { margin-bottom: 1rem; }
-    .custom-left p { color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; font-size: 0.95rem; }
-    .custom-examples {
-      display: flex; flex-direction: column; gap: 0.75rem;
-    }
-    .custom-ex {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1rem; border: 1px solid var(--border);
-      border-radius: 8px; background: var(--surface); font-size: 0.85rem; color: var(--text-muted);
-    }
-    .custom-ex svg { color: var(--gold); flex-shrink: 0; }
+    /* ── ABOUT ── */
+    #about { background: var(--black); }
 
-    /* Form */
-    .form-group { margin-bottom: 1.25rem; }
-    .form-label {
-      display: block; font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted);
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .about-img {
+      position: relative;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 12px;
+      filter: grayscale(30%) brightness(0.85);
+      display: block;
+    }
+    .about-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .timeline {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tl-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: 35px;
+      top: 40px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .tl-item:last-child::before { display: none; }
+    .tl-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-family: var(--font-display);
+    }
+    .tl-year {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .tl-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+    .tl-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── VALUES ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .value-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      transition: border-color 0.3s;
+    }
+    .value-card:hover { border-color: rgba(201,168,76,0.3); }
+    .value-icon {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .value-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    .form-input, .form-select, .form-textarea {
-      width: 100%; background: var(--surface-2);
-      border: 1px solid var(--border); border-radius: 8px;
-      padding: 0.85rem 1rem; color: var(--text); font-family: var(--font-body);
-      font-size: 0.9rem; transition: border-color 0.2s; outline: none;
+    .value-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--surface); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
     }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: rgba(201,168,76,0.4);
+    .testimonial-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--black);
+      transition: border-color 0.3s, transform 0.3s;
     }
-    .form-select { cursor: pointer; appearance: none; }
-    .form-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
-    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
-    .form-submit {
-      width: 100%; padding: 1rem; background: var(--gold); color: #0a0700;
-      border: none; border-radius: 8px; font-family: var(--font-body);
-      font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.25s;
+    .testimonial-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
+    }
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-label {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: rgba(5,5,5,0.8);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+    }
+    .tc-body { padding: 1.5rem; }
+    .tc-person {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .tc-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      filter: grayscale(20%);
+    }
+    .tc-name { font-size: 0.9rem; font-weight: 600; }
+    .tc-result { font-size: 0.75rem; color: var(--gold); margin-top: 0.1rem; }
+    .tc-quote { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+    .tc-quote strong { color: var(--gold); font-weight: 500; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--black); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .plan-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .plan-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
+    }
+    .plan-card.featured {
+      background: linear-gradient(160deg, #1a1400 0%, #0d0d0d 60%);
+      border-color: var(--gold);
+      box-shadow: 0 0 60px rgba(201,168,76,0.08);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #0a0700;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 0 0 6px 6px;
+    }
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .plan-price.gold { color: var(--gold); }
+    .plan-period { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .plan-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 2rem;
+    }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .plan-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
       letter-spacing: 0.02em;
     }
-    .form-submit:hover {
-      background: var(--gold-light); transform: translateY(-1px);
+    .plan-cta-ghost {
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .plan-cta-ghost:hover {
+      border-color: rgba(201,168,76,0.4);
+      color: var(--text);
+    }
+    .plan-cta-gold {
+      background: var(--gold);
+      color: #0a0700;
+    }
+    .plan-cta-gold:hover {
+      background: var(--gold-light);
       box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+      transform: translateY(-1px);
     }
-    .form-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center; }
-    .form-note span { color: var(--gold); }
 
-    /* ── WHY BRAINBOX ── */
-    #why { background: var(--black); }
-    .why-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: var(--border); border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden; margin-top: 4rem;
+    .pricing-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
-    .why-card {
-      background: var(--surface); padding: 2rem 1.75rem;
-      transition: background 0.3s; text-align: center;
-    }
-    .why-card:hover { background: var(--surface-2); }
-    .why-icon {
-      width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); margin: 0 auto 1.25rem;
-    }
-    .why-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
-
-    /* ── PROOF ── */
-    #proof { background: var(--surface); }
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-    .proof-card {
-      border: 1px solid var(--border); border-radius: 12px;
-      background: var(--black); padding: 2rem; transition: all 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .proof-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .proof-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-4px); }
-    .proof-card:hover::after { opacity: 1; }
-    .proof-service-tag {
-      display: inline-block; font-size: 0.65rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
-      background: var(--gold-glow); border: 1px solid rgba(201,168,76,0.15);
-      padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 1.25rem;
-    }
-    .proof-result {
-      font-family: var(--font-display); font-size: 2.2rem; font-weight: 800;
-      color: var(--gold); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem;
-    }
-    .proof-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem; }
-    .proof-quote { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
-    .proof-quote strong { color: var(--text); font-weight: 500; }
-    .proof-person { display: flex; align-items: center; gap: 0.75rem; }
-    .proof-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-weight: 800; font-size: 0.8rem; color: #0a0700;
-    }
-    .proof-name { font-size: 0.875rem; font-weight: 600; }
-    .proof-detail { font-size: 0.75rem; color: var(--text-muted); }
+    .pricing-note span { color: var(--gold); }
 
     /* ── FAQ ── */
-    #faq { background: var(--black); }
+    #faq { background: var(--surface); }
+
     .faq-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: var(--border); border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden; margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 4rem;
     }
+
     .faq-item {
-      background: var(--surface); padding: 0;
-      cursor: pointer; transition: background 0.2s;
+      background: var(--surface);
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.2s;
     }
     .faq-item:hover { background: var(--surface-2); }
     .faq-item.open { background: var(--surface-2); }
+
     .faq-header {
       padding: 1.75rem 2rem;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
-    .faq-q { font-size: 0.95rem; font-weight: 500; line-height: 1.5; }
+    .faq-q {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
     .faq-icon {
-      color: var(--gold); flex-shrink: 0; transition: transform 0.3s;
-      font-size: 1.2rem; line-height: 1;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      font-size: 1.2rem;
+      line-height: 1;
     }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-body {
-      display: none; padding: 0 2rem 1.75rem;
-      font-size: 0.875rem; color: var(--text-muted); line-height: 1.75;
+      display: none;
+      padding: 0 2rem 1.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.75;
     }
     .faq-item.open .faq-body { display: block; }
 
-    /* ── FINAL CTA ── */
-    #cta { background: var(--surface); padding: 7rem 0; }
+    /* ── CTA BANNER ── */
+    #cta {
+      background: var(--black);
+      padding: 7rem 0;
+    }
+
     .cta-inner {
-      border: 1px solid var(--border); border-radius: 16px; padding: 5rem 4rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 5rem 4rem;
       text-align: center;
       background: linear-gradient(160deg, #120e00 0%, #050505 50%);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
     .cta-inner::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 1px;
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
+
     .cta-inner h2 { margin-bottom: 1rem; }
     .cta-inner p { color: var(--text-muted); max-width: 480px; margin: 0 auto 2.5rem; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--surface); border-top: 1px solid var(--border); padding: 3rem 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
     }
     .footer-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .footer-brand { font-family: var(--font-display); font-weight: 800; font-size: 1rem; }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+    }
     .footer-brand span { color: var(--gold); }
     .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
     .footer-links { display: flex; gap: 2rem; }
@@ -501,31 +874,74 @@
     .footer-links a:hover { color: var(--gold); }
 
     /* ── ANIMATIONS ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    /* SPOTS BAR */
+    .spots-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 101;
+      background: linear-gradient(90deg, #120e00, #1a1200, #120e00);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 0.6rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .spots-bar span { color: var(--gold); font-weight: 600; }
+    .spots-bar a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
     /* FLOATING WHATSAPP */
     .wa-float {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
-      display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
     }
     .wa-bubble {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-muted);
-      max-width: 200px; line-height: 1.5; opacity: 0;
-      transform: translateY(8px) scale(0.95); transition: all 0.3s; pointer-events: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 200px;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+      transition: all 0.3s;
+      pointer-events: none;
     }
     .wa-bubble.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
     .wa-btn {
-      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 30px rgba(37,211,102,0.35); text-decoration: none;
-      transition: all 0.25s; animation: wa-pulse 3s ease-in-out infinite;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+      text-decoration: none;
+      transition: all 0.25s;
+      animation: wa-pulse 3s ease-in-out infinite;
     }
     .wa-btn:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
     @keyframes wa-pulse {
@@ -533,77 +949,171 @@
       50% { box-shadow: 0 8px 40px rgba(37,211,102,0.6); }
     }
 
-    /* Form error states */
-    .form-group.has-form-error .form-input,
-    .form-group.has-form-error .form-textarea {
-      border-color: #e05c5c;
-    }
-    .form-group .form-error-msg {
-      display: none; font-size: 0.75rem; color: #e05c5c; margin-top: 0.3rem;
-    }
-    .form-group.has-form-error .form-error-msg { display: block; }
-    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Success message */
-    .form-success {
-      display: none; text-align: center; padding: 2rem;
-      border: 1px solid rgba(201,168,76,0.3); border-radius: 10px;
-      background: var(--gold-glow);
-    }
-    .form-success.show { display: block; }
-    .form-success h3 { font-family: var(--font-display); color: var(--gold); margin-bottom: 0.5rem; }
-    .form-success p { font-size: 0.875rem; color: var(--text-muted); }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .steps-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .custom-layout { grid-template-columns: 1fr; }
-      .custom-left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2rem; }
-      .custom-right { padding: 3rem 2rem; }
-      .why-grid { grid-template-columns: 1fr 1fr; }
-      .proof-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr; }
-      .nav-links, .nav-links + .btn-gold { display: none !important; }
+      .nav-links, .nav-links + .btn { display: none !important; }
       .hamburger { display: flex; }
-      .services-header { flex-direction: column; align-items: flex-start; }
     }
+
     @media (max-width: 600px) {
       .container { padding: 0 1.25rem; }
       .section { padding: 4.5rem 0; }
       h1 { font-size: 2.5rem; }
       h2 { font-size: 2rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 1.5rem; }
       .cta-inner { padding: 3rem 1.5rem; }
+      .values-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
-      .hero-trust { gap: 1.25rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── TRUST FEATURES ── */
+
+    /* LIVE NOTIFICATION POPUP */
+    .live-notif {
+      position: fixed; bottom: 6rem; left: 1.5rem; z-index: 199;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      display: flex; align-items: center; gap: 0.85rem;
+      max-width: 280px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      transform: translateX(-120%);
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+    }
+    .live-notif.show { transform: translateX(0); }
+    .notif-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 800; font-size: 0.85rem;
+      color: #0a0700; flex-shrink: 0;
+    }
+    .notif-text { font-size: 0.8rem; line-height: 1.45; }
+    .notif-text strong { color: var(--text); font-weight: 600; display: block; }
+    .notif-text span { color: var(--text-muted); }
+    .notif-time { font-size: 0.7rem; color: var(--gold); margin-top: 0.2rem; display: block; }
+
+    /* PRESS STRIP */
+    .press-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .press-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .press-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .press-logo {
+      opacity: 0.35;
+      transition: opacity 0.25s;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .press-logo:hover { opacity: 0.7; }
+    .press-logo svg { flex-shrink: 0; }
+
+    /* STAR RATING STRIP */
+    .rating-section {
+      background: var(--black);
+      padding: 4rem 0;
+    }
+    .rating-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 4rem;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      background: var(--surface);
+    }
+    .rating-score-block { text-align: center; }
+    .rating-big {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .rating-stars { display: flex; gap: 3px; justify-content: center; margin: 0.4rem 0; }
+    .star { color: var(--gold); font-size: 1.1rem; }
+    .rating-count { font-size: 0.78rem; color: var(--text-muted); }
+
+    .rating-bars { flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+    .rating-row { display: flex; align-items: center; gap: 0.75rem; }
+    .rating-row-label { font-size: 0.78rem; color: var(--text-muted); width: 20px; text-align: right; flex-shrink: 0; }
+    .rating-bar-bg { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+    .rating-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 1.2s ease; }
+    .rating-row-pct { font-size: 0.75rem; color: var(--text-muted); width: 30px; flex-shrink: 0; }
+
+    .rating-summary { max-width: 220px; }
+    .rating-summary-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .rating-summary p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+
+    @media (max-width: 900px) {
+      .rating-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; padding: 2rem; }
+      .rating-bars { max-width: 360px; margin: 0 auto; }
+      .rating-row-label { text-align: center; }
+      .rating-summary { max-width: 100%; }
+      .live-notif { max-width: 240px; }
+    }
+    @media (max-width: 600px) {
+      .press-logos { gap: 1.5rem; }
+      .press-logo { font-size: 0.85rem; }
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
-  <nav id="main-nav">
+  <nav id="navbar" style="top: 0px;">
     <a href="/" class="nav-logo">Brain<span>Box</span> Ecom Lab</a>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#custom">Custom Request</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="/contact/">Contact</a></li>
     </ul>
-    <a href="#custom" class="btn-gold" id="nav-cta">Get Help Now</a>
+    <a href="/apply/" class="btn btn-gold" id="nav-cta" style="display:none;">Apply Now</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Home</a>
-    <a href="#services">Services</a>
-    <a href="#custom">Custom Request</a>
-    <a href="#faq">FAQ</a>
-    <a href="#custom" style="color:var(--gold); font-weight:600;">Get Help Now →</a>
+
+  <div class="mobile-menu" id="mobile-menu" style="top: 108px;">
+    <a href="#how" onclick="closeMobile()">How It Works</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#pricing" onclick="closeMobile()">Pricing</a>
+    <a href="/contact/">Contact</a>
+    <a href="/apply/" target="_blank" class="btn btn-gold" style="margin-top:0.5rem;">Apply Now</a>
   </div>
 
   <!-- HERO -->
@@ -612,29 +1122,28 @@
     <div class="hero-glow"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="eyebrow">À-La-Carte Expert Services</div>
-        <h1>Need One Thing<br /><em>Done Right?</em><br />We've Got You.</h1>
-        <p class="hero-sub">
-          You don't always need a full mentorship program. Sometimes you just need a
-          premium theme, a set of converting creatives, or someone to set up your
-          sales funnel correctly. Tell us what you need — we have an expert for it.
-        </p>
+        <div class="eyebrow">E-commerce Mentorship Program</div>
+        <h1>Master the Art of<br /><em>Profitable</em> Dropshipping</h1>
+        <p class="hero-sub">BrainBox Ecom Lab isn't just another mentorship — it's your direct path to building, scaling, and automating a high-revenue dropshipping business with battle-tested strategies.</p>
         <div class="hero-actions">
-          <a href="#services" class="btn-gold-lg">Browse Services ↓</a>
-          <a href="#custom" class="btn-outline-lg">Request Custom Help</a>
+          <a href="/apply/" target="_blank" class="btn-gold-lg">
+            Apply for Mentorship
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/how-it-works/" target="_blank" class="btn-outline-lg">Read how our program works</a>
         </div>
-        <div class="hero-trust">
-          <div class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            No fixed pricing — we quote based on your scope
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" id="counter-students">300+</div>
+            <div class="stat-label">Students mentored</div>
           </div>
-          <div class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Same experts behind our 500+ student mentorship
+          <div class="stat">
+            <div class="stat-num" id="counter-revenue">$50K+</div>
+            <div class="stat-label">Avg. daily student revenue</div>
           </div>
-          <div class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Can't find your service? Just apply and describe it
+          <div class="stat">
+            <div class="stat-num" id="counter-countries">12+</div>
+            <div class="stat-label">Countries reached</div>
           </div>
         </div>
       </div>
@@ -643,27 +1152,103 @@
 
   <!-- MARQUEE -->
   <div class="marquee-section">
-    <div class="marquee-track">
-      <span class="marquee-item">Premium Themes</span>
-      <span class="marquee-item">Ad Creatives</span>
-      <span class="marquee-item">Sales Funnel Setup</span>
-      <span class="marquee-item">LLC Formation</span>
-      <span class="marquee-item">Business Manager Setup</span>
+    <div class="marquee-track" id="marquee">
+      <span class="marquee-item">Dropshipping Strategy</span>
+      <span class="marquee-item">AI-Powered Ads</span>
+      <span class="marquee-item">Store Automation</span>
+      <span class="marquee-item">1-on-1 Mentorship</span>
       <span class="marquee-item">Product Research</span>
-      <span class="marquee-item">Ad Account Warming</span>
-      <span class="marquee-item">Email Marketing</span>
-      <span class="marquee-item">Store Audit</span>
-      <span class="marquee-item">Copywriting</span>
-      <span class="marquee-item">Premium Themes</span>
-      <span class="marquee-item">Ad Creatives</span>
-      <span class="marquee-item">Sales Funnel Setup</span>
-      <span class="marquee-item">LLC Formation</span>
-      <span class="marquee-item">Business Manager Setup</span>
+      <span class="marquee-item">Ad Scaling</span>
+      <span class="marquee-item">COD Strategy</span>
+      <span class="marquee-item">E-commerce Funnels</span>
+      <span class="marquee-item">Dropshipping Strategy</span>
+      <span class="marquee-item">AI-Powered Ads</span>
+      <span class="marquee-item">Store Automation</span>
+      <span class="marquee-item">1-on-1 Mentorship</span>
       <span class="marquee-item">Product Research</span>
-      <span class="marquee-item">Ad Account Warming</span>
-      <span class="marquee-item">Email Marketing</span>
-      <span class="marquee-item">Store Audit</span>
-      <span class="marquee-item">Copywriting</span>
+      <span class="marquee-item">Ad Scaling</span>
+      <span class="marquee-item">COD Strategy</span>
+      <span class="marquee-item">E-commerce Funnels</span>
+    </div>
+  </div>
+
+  <!-- PRESS / AS SEEN ON -->
+  <div class="press-section">
+    <div class="container">
+      <div class="press-label">Trusted & featured across the community</div>
+      <div class="press-logos">
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
+          Instagram
+        </div>
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          Discord
+        </div>
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </div>
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </div>
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Shopify Community
+        </div>
+        <div class="press-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Ecom Networks
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAR RATING -->
+  <div class="rating-section">
+    <div class="container">
+      <div class="rating-inner reveal" id="rating-block">
+        <div class="rating-score-block">
+          <div class="rating-big">4.9</div>
+          <div class="rating-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="rating-count">Based on 200+ student reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-row">
+            <div class="rating-row-label">5</div>
+            <div class="rating-bar-bg"><div class="rating-bar-fill" data-width="88%" style="width:0%"></div></div>
+            <div class="rating-row-pct">88%</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-row-label">4</div>
+            <div class="rating-bar-bg"><div class="rating-bar-fill" data-width="9%" style="width:0%"></div></div>
+            <div class="rating-row-pct">9%</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-row-label">3</div>
+            <div class="rating-bar-bg"><div class="rating-bar-fill" data-width="2%" style="width:0%"></div></div>
+            <div class="rating-row-pct">2%</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-row-label">2</div>
+            <div class="rating-bar-bg"><div class="rating-bar-fill" data-width="1%" style="width:0%"></div></div>
+            <div class="rating-row-pct">1%</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-row-label">1</div>
+            <div class="rating-bar-bg"><div class="rating-bar-fill" data-width="0%" style="width:0%"></div></div>
+            <div class="rating-row-pct">0%</div>
+          </div>
+        </div>
+        <div class="rating-summary">
+          <div class="rating-summary-title">What Students Say</div>
+          <p>"The mentorship is hands-on, personalised, and genuinely gets results. Worth every penny."</p>
+          <p style="font-size:0.78rem; color:var(--gold);">— Verified student, Pro Plan</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -671,483 +1256,307 @@
   <section id="how" class="section">
     <div class="container">
       <div class="reveal">
-        <div class="section-label">The Process</div>
-        <h2>Simple. Fast.<br /><em>No Fluff.</em></h2>
-        <p class="section-desc">Three steps from "I need help" to having it handled by someone who actually knows what they're doing.</p>
+        <div class="section-label">The System</div>
+        <h2>How BrainBox Elevates<br />Your Success</h2>
+        <p class="section-desc">Follow our proven three-phase system to launch, scale, and automate your e-commerce business.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-card reveal">
+      <div class="steps-grid reveal">
+        <div class="step-card">
           <div class="step-num">01</div>
           <div class="step-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           </div>
-          <div class="step-title">Pick a Service or Describe Your Need</div>
-          <div class="step-desc">Browse the popular services below or scroll to the custom request section and tell us in your own words what you need. No service list can cover everything — if it's dropshipping-related, we can likely help.</div>
+          <div class="step-title">Build & Optimize</div>
+          <p class="step-desc">We craft high-converting stores with winning products and optimized funnels built to generate consistent sales from day one.</p>
         </div>
-        <div class="step-card reveal reveal-delay-1">
+        <div class="step-card">
           <div class="step-num">02</div>
           <div class="step-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2m0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           </div>
-          <div class="step-title">We Scope It & Send a Quote</div>
-          <div class="step-desc">Our team reviews your request within 24 hours, asks any clarifying questions, and sends you a tailored quote based on the complexity and scope of work. No hidden fees, no surprises.</div>
+          <div class="step-title">Drive Sales with AI Ads</div>
+          <p class="step-desc">Leverage our advanced AI-driven ad strategies to generate consistent, profitable traffic and turn clicks into customers at scale.</p>
         </div>
-        <div class="step-card reveal reveal-delay-2">
+        <div class="step-card">
           <div class="step-num">03</div>
           <div class="step-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <div class="step-title">Approve & We Get It Done</div>
-          <div class="step-desc">Once you're happy with the quote, we get to work. You'll have a direct line to your assigned expert throughout the process, and we don't close out until you're satisfied.</div>
+          <div class="step-title">Automate & Scale</div>
+          <p class="step-desc">Turn your store into a hands-free automated revenue machine with expert-backed systems designed for 6 and 7-figure growth.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:3rem;" class="reveal">
+        <a href="/apply/" target="_blank" class="btn-gold-lg">Get Started Now</a>
+        <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted);">Proven Results. No Guesswork. Start Scaling Today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img reveal">
+          <img src="photo_2026-01-17_19-22-43.jpg" alt="BrainBox" />
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="section-label">Our Story</div>
+          <h2>Transforming Entrepreneurs into Industry Leaders</h2>
+          <p class="section-desc" style="margin-bottom:2.5rem;">BrainBox Ecom Lab isn't just another e-commerce mentorship. We're building a movement that empowers individuals to create scalable, automated, and highly profitable online businesses using proven strategies.</p>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot">20</div>
+              <div>
+                <div class="tl-year">2020 — The Beginning</div>
+                <div class="tl-title">Founded with a Vision</div>
+                <div class="tl-desc">BrainBox Ecom Lab was founded to disrupt traditional e-commerce education with hands-on, results-driven mentorship.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">21</div>
+              <div>
+                <div class="tl-year">2021 — Explosive Growth</div>
+                <div class="tl-title">10+ Countries, Hundreds Mentored</div>
+                <div class="tl-desc">Scaled our reach globally, mentoring hundreds of e-commerce entrepreneurs across 10+ countries.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">23</div>
+              <div>
+                <div class="tl-year">2023 — AI & Automation</div>
+                <div class="tl-title">The Next Generation</div>
+                <div class="tl-desc">Integrated AI-driven automation tools to optimize scaling, profitability, and store management.</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:2.5rem;">
+            <a href="/apply/" target="_blank" class="btn-gold-lg">Be Part of the Revolution</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-grid" style="margin-top:5rem;">
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="value-title">Innovation</div>
+          <p class="value-desc">Leading the industry with AI-powered scaling and automation solutions that adapt to market trends in real time.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="value-title">Community</div>
+          <p class="value-desc">A thriving network of e-commerce professionals, active mentors, and real success stories pushing each other forward.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div class="value-title">Growth</div>
+          <p class="value-desc">Proven scaling systems that drive 6 to 7-figure revenue streams through disciplined, data-driven execution.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
     <div class="container">
-      <div class="services-header reveal">
-        <div>
-          <div class="section-label">What We Offer</div>
-          <h2>Popular<br /><em>Services</em></h2>
-        </div>
-        <p class="section-desc" style="max-width:380px;">These are the most requested services. Don't see what you need? Scroll down to the custom request section.</p>
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label">Social Proof</div>
+        <h2>Success Stories from<br />BrainBox Store Owners</h2>
+        <p class="section-desc" style="margin:0 auto;">Real results. Real transformations from students who committed and executed.</p>
       </div>
-
-      <div class="services-grid">
-
-        <!-- Service 1 -->
-        <div class="service-card reveal">
-          <div class="service-tag">Most Requested</div>
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="video-wrap">
+            <video controls oncontextmenu="return false;" disablePictureInPicture controlsList="nodownload nofullscreen">
+              <source src="VID-20250222-WA0003.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Student Result</div>
           </div>
-          <div class="service-name">Premium Store Theme</div>
-          <div class="service-desc">A custom-configured, high-converting Shopify theme built for your niche. No generic templates — we set it up, brand it, and optimize it for conversions from day one.</div>
-          <ul class="service-includes">
-            <li>Theme selection & purchase guidance</li>
-            <li>Full setup, branding & customization</li>
-            <li>Mobile-optimized & speed tuned</li>
-            <li>Product page conversion layout</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-gold">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
+          <div class="tc-body">
+            <div class="tc-person">
+              <img src="https://avatars.mds.yandex.net/i?id=212cdab5190381d1df42700ee3f546f96e5afa00-12626523-images-thumbs&n=13" class="tc-avatar" alt="Smith" />
+              <div>
+                <div class="tc-name">Rayyan</div>
+                <div class="tc-result">Scaled with the first product tested</div>
+              </div>
+            </div>
+            <p class="tc-quote">"BrainBox Ecom Lab <strong>changed my life</strong>. I got referred here by my Friend and they toook me from struggling to making few sales with less profit to a high margin profit just from the first product."</p>
+          </div>
         </div>
 
-        <!-- Service 2 -->
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="video-wrap">
+            <video controls oncontextmenu="return false;" disablePictureInPicture controlsList="nodownload nofullscreen">
+              <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Student Result</div>
           </div>
-          <div class="service-name">Ad Creatives Package</div>
-          <div class="service-desc">Scroll-stopping video and image creatives designed specifically for your product and target audience. Built to run on Meta, TikTok, or both.</div>
-          <ul class="service-includes">
-            <li>Video UGC-style or branded creatives</li>
-            <li>Static image ad variations</li>
-            <li>Hook testing formats included</li>
-            <li>Ad copy & headlines written</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
+          <div class="tc-body">
+            <div class="tc-person">
+              <img src="https://avatars.mds.yandex.net/i?id=212cdab5190381d1df42700ee3f546f96e5afa00-12626523-images-thumbs&n=13" class="tc-avatar" alt="Micheal" />
+              <div>
+                <div class="tc-name">Smith</div>
+                <div class="tc-result">His First week Experience</div>
+              </div>
+            </div>
+            <p class="tc-quote">I started my journey about 1 month ago with brainbox, <strong>just finished the website</strong> and so far so good i wanna say theyre doing a good job.</p>
+          </div>
         </div>
 
-        <!-- Service 3 -->
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v4H3z"/><path d="M3 10h18v4H3z"/><path d="M3 17h18v4H3z"/></svg>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="video-wrap">
+            <video controls oncontextmenu="return false;" disablePictureInPicture controlsList="nodownload nofullscreen">
+              <source src="kelvin.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Student Result</div>
           </div>
-          <div class="service-name">Sales Funnel Build</div>
-          <div class="service-desc">A full funnel from ad click to post-purchase upsell. We map it out, build it, and set up the automations so you're making money even while you sleep.</div>
-          <ul class="service-includes">
-            <li>Landing page or store funnel audit</li>
-            <li>Upsell & cross-sell setup</li>
-            <li>Abandoned cart & post-purchase flows</li>
-            <li>Conversion tracking verified</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="tc-body">
+            <div class="tc-person">
+              <img src="https://avatars.mds.yandex.net/i?id=212cdab5190381d1df42700ee3f546f96e5afa00-12626523-images-thumbs&n=13" class="tc-avatar" alt="Michael" />
+              <div>
+                <div class="tc-name">Kelvin</div>
+                <div class="tc-result">Started as a complete beginner</div>
+              </div>
+            </div>
+            <p class="tc-quote">Started out the business <strong>without knowing anything</strong> about how dropshipping works and Brainbox ecom helped me scaled</p>
           </div>
-          <div class="service-name">Business Manager Setup</div>
-          <div class="service-desc">Get your Meta Business Manager and ad accounts set up, verified, and warmed — the right way. Avoid bans, restrictions, and lost spend from the start.</div>
-          <ul class="service-includes">
-            <li>BM creation & full configuration</li>
-            <li>Ad account setup & warming strategy</li>
-            <li>Pixel installation & event testing</li>
-            <li>Domain verification & trust signals</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
         </div>
-
-        <!-- Service 5 -->
-        <div class="service-card featured reveal reveal-delay-1">
-          <div class="service-tag">Popular with Beginners</div>
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="service-name">LLC & Business Formation</div>
-          <div class="service-desc">Get your business legally set up in the right state, the right way. We guide you through the full process — from choosing a structure to getting your EIN and business account.</div>
-          <ul class="service-includes">
-            <li>LLC or business structure guidance</li>
-            <li>State filing & registered agent</li>
-            <li>EIN application support</li>
-            <li>Business bank account setup advice</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-gold">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
-        </div>
-
-        <!-- Service 6 -->
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <div class="service-name">Product Research</div>
-          <div class="service-desc">We find you validated, high-margin products with real demand — not oversaturated garbage. Delivered with full research data, supplier links, and a market analysis.</div>
-          <ul class="service-includes">
-            <li>3–5 winning product picks</li>
-            <li>Competitor & saturation analysis</li>
-            <li>Supplier sourcing & pricing</li>
-            <li>Suggested target audience per product</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
-        </div>
-
-        <!-- Service 7 -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="service-name">Email Marketing Setup</div>
-          <div class="service-desc">Most stores leave 30%+ revenue on the table with no email. We set up your Klaviyo or Omnisend flows, automations, and campaigns so your list actually makes you money.</div>
-          <ul class="service-includes">
-            <li>Platform setup & list integration</li>
-            <li>Welcome, abandoned cart & win-back flows</li>
-            <li>Campaign template creation</li>
-            <li>Segmentation & sending best practices</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
-        </div>
-
-        <!-- Service 8 -->
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          <div class="service-name">Store Audit & Fix</div>
-          <div class="service-desc">Already have a store but something isn't working? We audit your entire setup — theme, copy, checkout, speed, and funnel — and give you a full fix plan plus implement it.</div>
-          <ul class="service-includes">
-            <li>Full Shopify store review</li>
-            <li>Conversion rate bottleneck identification</li>
-            <li>Written audit report with fixes</li>
-            <li>Implementation of priority changes</li>
-          </ul>
-          <a href="#custom" class="service-cta service-cta-ghost">Request This Service</a>
-          <p class="service-price-hint">Priced based on scope — <span>get a quote in 24h</span></p>
-        </div>
-
-        <!-- Service 9 — "Don't see yours?" card -->
-        <div class="service-card reveal reveal-delay-2" style="border-style: dashed; border-color: rgba(201,168,76,0.2); background: transparent; justify-content: center; align-items: center; text-align: center; min-height: 320px;">
-          <div style="color: var(--gold); margin-bottom: 1.25rem;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          </div>
-          <div class="service-name" style="margin-bottom: 0.75rem;">Don't See Your Service?</div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
-            We handle every aspect of dropshipping. If it's related to your store, ads, or business setup — we have an expert for it.
-          </p>
-          <a href="#custom" class="service-cta service-cta-gold" style="width: fit-content; padding: 0.8rem 1.5rem;">Submit a Custom Request</a>
-        </div>
-
+      </div>
+      <div style="text-align:center; margin-top:3rem;" class="reveal">
+        <a href="/apply/" target="_blank" class="btn-gold-lg">Start Your Success Story</a>
       </div>
     </div>
   </section>
 
-  <!-- CUSTOM REQUEST -->
-  <section id="custom" class="section">
+  <!-- PRICING -->
+  <section id="pricing" class="section">
     <div class="container">
-      <div class="custom-inner">
-        <div class="custom-layout">
-          <div class="custom-left">
-            <div class="section-label reveal">Can't Find It? Request It.</div>
-            <h2 class="reveal">Tell Us Exactly<br /><em>What You Need</em></h2>
-            <p class="reveal">No service list covers everything. Whether it's something niche, technical, or something you can't quite name — describe it and we'll match you with the right expert and quote you within 24 hours.</p>
-            <div class="custom-examples reveal">
-              <div class="custom-ex">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                "I need someone to warm my ad account and get it ready to spend"
-              </div>
-              <div class="custom-ex">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                "Help me find a winning product in the pet niche"
-              </div>
-              <div class="custom-ex">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                "Set up my LLC and help me open a business bank account"
-              </div>
-              <div class="custom-ex">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                "My store gets traffic but nobody's buying — fix it"
-              </div>
-              <div class="custom-ex">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                "Write product descriptions and homepage copy for my store"
-              </div>
-            </div>
-          </div>
-          <div class="custom-right">
-            <div id="apply-form" class="reveal">
-              <form id="serviceRequestForm" action="https://formspree.io/f/xjgezknq" method="POST" novalidate>
-                <input type="hidden" name="_subject" value="New Service Request — BrainBox Ecom Lab" />
-                <div class="form-group" id="group-name">
-                  <label class="form-label" for="req-name">Your Name *</label>
-                  <input class="form-input" type="text" id="req-name" name="name" placeholder="e.g. Ahmed K." />
-                  <span class="form-error-msg">Please enter your name</span>
-                </div>
-                <div class="form-group" id="group-contact">
-                  <label class="form-label" for="req-contact">WhatsApp / Email *</label>
-                  <input class="form-input" type="text" id="req-contact" name="contact" placeholder="How we'll reach you" />
-                  <span class="form-error-msg">Please enter your WhatsApp number or email</span>
-                </div>
-                <div class="form-group" id="group-service">
-                  <label class="form-label" for="req-service">Service Category</label>
-                  <select class="form-input" id="req-service" name="service_category" style="appearance:none; background-image:url(\"data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8780' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E\"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; cursor:pointer;">
-                    <option value="">Select a category (or choose Other)</option>
-                    <option>Premium Store Theme</option>
-                    <option>Ad Creatives</option>
-                    <option>Sales Funnel</option>
-                    <option>Business Manager / Ad Account</option>
-                    <option>LLC & Business Formation</option>
-                    <option>Product Research</option>
-                    <option>Email Marketing</option>
-                    <option>Store Audit & Fix</option>
-                    <option>Other / Not Listed</option>
-                  </select>
-                </div>
-                <div class="form-group" id="group-situation">
-                  <label class="form-label" for="req-situation">Describe What You Need *</label>
-                  <textarea class="form-textarea" id="req-situation" name="description" placeholder="Tell us your current situation and exactly what you need help with. The more detail, the faster we can quote you."></textarea>
-                  <span class="form-error-msg">Please describe what you need help with</span>
-                </div>
-                <div class="form-group" id="group-experience">
-                  <label class="form-label" for="req-experience">Your Experience Level</label>
-                  <select class="form-input" id="req-experience" name="experience_level" style="appearance:none; background-image:url(\"data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8780' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E\"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; cursor:pointer;">
-                    <option value="">Select your level</option>
-                    <option>Complete beginner — haven't started yet</option>
-                    <option>Have a store but haven't made sales</option>
-                    <option>Making some sales, want to scale</option>
-                    <option>Experienced — just need this one thing</option>
-                  </select>
-                </div>
-                <button type="submit" class="form-submit" id="req-submit-btn">
-                  <span class="req-btn-text">Submit Request →</span>
-                  <span class="req-spinner" style="display:none; width:18px; height:18px; border:2px solid rgba(10,7,0,0.3); border-top-color:#0a0700; border-radius:50%; animation:spin 0.7s linear infinite; display:none;"></span>
-                </button>
-                <p class="form-note">We review every request personally. Expect a response within <span>24 hours</span>.</p>
-              </form>
-            </div>
-            <div class="form-success" id="form-success">
-              <div style="width:64px;height:64px;background:rgba(76,175,130,0.15);border:1px solid rgba(76,175,130,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf82" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
-              <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">Request Received!</h3>
-              <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem;">We'll review your request and get back to you within 24 hours via WhatsApp or email. Keep an eye out.</p>
-              <a href="https://wa.link/orsgt5" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);text-decoration:none;font-size:0.85rem;background:var(--surface-2);">
-                <svg width="16" height="16" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Message us on WhatsApp while you wait
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="reveal" style="text-align:center;">
+        <div class="section-label">Investment</div>
+        <h2>Unlock Your Ecom Success</h2>
+        <p class="section-desc" style="margin:0 auto;">Whether you're starting from scratch or scaling to 7 figures — pick the plan that matches your ambition.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- WHY BRAINBOX -->
-  <section id="why" class="section">
-    <div class="container">
-      <div style="text-align: center; max-width: 560px; margin: 0 auto;" class="reveal">
-        <div class="section-label">Why Choose BrainBox</div>
-        <h2>Same Experts.<br /><em>Just Focused.</em></h2>
-        <p class="section-desc" style="margin: 0 auto;">These aren't freelancers off a marketplace. These are the same people who've helped 500+ students build real dropshipping businesses.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="why-title">Real Practitioners</div>
-          <div class="why-desc">Every expert on our team runs or has run their own stores. No theory, no outsourcing to random VAs.</div>
+      <div class="pricing-grid">
+        <div class="plan-card reveal">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$350</div>
+          <div class="plan-period">One-Time Payment</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Basic mentorship access</li>
+            <li>Store setup guidance</li>
+            <li>Private course access</li>
+            <li>1-on-1 coaching session</li>
+          </ul>
+          <a href="/apply/" target="_blank" class="plan-cta plan-cta-ghost">Get Started</a>
         </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-          <div class="why-title">Proven Track Record</div>
-          <div class="why-desc">500+ students, 10+ countries, consistent $1K+ days. Our results speak louder than any sales pitch.</div>
-        </div>
-        <div class="why-card reveal reveal-delay-2">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="why-title">Fast Turnaround</div>
-          <div class="why-desc">We don't ghost. Quotes within 24 hours. Delivery timelines agreed upfront. You'll always know where things stand.</div>
-        </div>
-        <div class="why-card reveal reveal-delay-3">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="why-title">You're Not Left Hanging</div>
-          <div class="why-desc">Every service includes direct communication. We don't hand off and disappear — we see it through until you're satisfied.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PROOF -->
-  <section id="proof" class="section">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Real Results</div>
-        <h2>What Happens When<br /><em>One Thing Gets Fixed</em></h2>
-        <p class="section-desc">These aren't full mentorship students. These are people who came to us for one specific service — and it changed their numbers.</p>
-      </div>
-      <div class="proof-grid">
-        <div class="proof-card reveal">
-          <div class="proof-service-tag">Premium Theme</div>
-          <div class="proof-result">3.4%</div>
-          <div class="proof-result-label">Conversion rate (was 0.9%)</div>
-          <div class="proof-quote">
-            "My store was getting 400 sessions a day and making maybe one or two sales. BrainBox rebuilt the theme and product pages — <strong>within a week I tripled my conversion rate</strong>. Same traffic, completely different results."
-          </div>
-          <div class="proof-person">
-            <div class="proof-avatar">M</div>
-            <div>
-              <div class="proof-name">Marcus O.</div>
-              <div class="proof-detail">Home & Living Niche, UK</div>
-            </div>
-          </div>
+        <div class="plan-card featured reveal reveal-delay-1">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price gold">$700</div>
+          <div class="plan-period">One-Time Payment</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Everything in Starter</li>
+            <li>1-on-1 mentorship support</li>
+            <li>Full ad strategy + scaling</li>
+            <li>Exclusive COD access</li>
+          </ul>
+          <a href="/apply/" target="_blank" class="plan-cta plan-cta-gold">Join Pro Plan</a>
         </div>
-        <div class="proof-card reveal reveal-delay-1">
-          <div class="proof-service-tag">Ad Creatives</div>
-          <div class="proof-result">$4.2K</div>
-          <div class="proof-result-label">First week running new creatives</div>
-          <div class="proof-quote">
-            "My old creatives weren't breaking even. I requested the ad creatives package and they made me 6 variations — <strong>two of them immediately hit profitable ROAS</strong>. I scaled to $4.2K that first week."
-          </div>
-          <div class="proof-person">
-            <div class="proof-avatar">S</div>
-            <div>
-              <div class="proof-name">Sara L.</div>
-              <div class="proof-detail">Beauty Niche, Canada</div>
-            </div>
-          </div>
-        </div>
-        <div class="proof-card reveal reveal-delay-2">
-          <div class="proof-service-tag">Business Setup</div>
-          <div class="proof-result">0 Bans</div>
-          <div class="proof-result-label">Running ads for 8 months straight</div>
-          <div class="proof-quote">
-            "I'd been banned twice before on Meta. BrainBox set up my BM and ad accounts the proper way with domain verification and full warming. <strong>8 months later, no bans, no restrictions</strong>, scaling freely."
-          </div>
-          <div class="proof-person">
-            <div class="proof-avatar">K</div>
-            <div>
-              <div class="proof-name">Karim A.</div>
-              <div class="proof-detail">Electronics Niche, UAE</div>
-            </div>
-          </div>
+
+        <div class="plan-card reveal reveal-delay-2">
+          <div class="plan-name">Elite</div>
+          <div class="plan-price">Custom</div>
+          <div class="plan-period">One-Time Payment</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Everything in Pro</li>
+            <li>Done-for-you store setup</li>
+            <li>Advanced ad scaling & automation</li>
+            <li>Exclusive COD access</li>
+          </ul>
+          <a href="/apply/" target="_blank" class="plan-cta plan-cta-ghost">Join Elite</a>
         </div>
       </div>
+
+      <p class="pricing-note reveal">All plans include a <span>30-day money-back guarantee</span>. Zero risk, pure results.</p>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq" class="section">
     <div class="container">
-      <div class="reveal" style="text-align:center; max-width:560px; margin: 0 auto;">
+      <div class="reveal" style="text-align:center;">
         <div class="section-label">FAQ</div>
-        <h2>Got<br /><em>Questions?</em></h2>
+        <h2>Have Questions?<br />We've Got Answers</h2>
+        <p class="section-desc" style="margin:0 auto;">Everything you need to know before making your move.</p>
       </div>
-      <div class="faq-grid">
+      <div class="faq-grid reveal">
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">How is pricing determined?</div>
+            <div class="faq-q">What is BrainBox Ecom Lab, and how does it work?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">There are no fixed prices because every request is different. A basic theme setup is completely different from a custom full-funnel build. Once you submit your request, we review it within 24 hours and send a tailored quote based on the scope and complexity of the work involved. No surprises, no upselling.</div>
+          <div class="faq-body">BrainBox Ecom Lab is a high-performance e-commerce mentorship program. We equip you with expert training, AI-driven strategies, and direct mentorship to help you launch, scale, and automate a profitable online business.</div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">How long does it take to get my service delivered?</div>
+            <div class="faq-q">How fast can I start making money?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">Delivery time depends on the service. Simple setups like BM configuration or product research can be done within 2–4 days. More involved projects like full store builds or funnel setups typically take 5–10 business days. We'll always give you a clear timeline in your quote before you commit.</div>
+          <div class="faq-body">Most of our students make their first sale within 2–4 weeks by following our strategies. Success depends on your effort, niche, and ad budget — we guide you every step of the way.</div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">Can I order more than one service at the same time?</div>
+            <div class="faq-q">Do I need experience to join?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">Absolutely. A lot of people come to us for a theme plus ad creatives, or a store audit followed by an email marketing setup. Just mention everything you need in your request and we'll scope and quote it all together. You may even get a better combined rate.</div>
+          <div class="faq-body">No experience? No problem. Our mentorship is designed for beginners while still providing advanced strategies for those already running stores. You'll get everything you need to start and scale.</div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">What if my service isn't listed?</div>
+            <div class="faq-q">What makes BrainBox Ecom Lab different?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">That's what the custom request form is for. The listed services are just the most common ones — we handle everything across the dropshipping and ecom space. If it relates to your store, your ads, or your business structure, there's a very high chance we can help. Just describe it and we'll tell you.</div>
+          <div class="faq-body">Unlike generic courses, BrainBox provides hands-on mentorship tailored to your store, AI-driven strategies that adapt to market trends, proven systems that help students hit $1K/day and beyond, and community support to keep you motivated.</div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">Is this suitable for complete beginners?</div>
+            <div class="faq-q">What is the money-back guarantee?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">Yes. Many people who use this are just starting out and want a specific part handled professionally — a clean store, legal business setup, or a set of creatives to test. You don't need to know everything. That's literally what this service is for.</div>
+          <div class="faq-body">We offer a 30-day money-back guarantee on all plans. If you follow the program and don't see results, we'll refund your investment — no questions asked.</div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-header">
-            <div class="faq-q">Can I upgrade to full mentorship later?</div>
+            <div class="faq-q">How do I get support once I've joined?</div>
             <div class="faq-icon">+</div>
           </div>
-          <div class="faq-body">Yes — and many people do. À-la-carte services are a great way to see the quality of our work before committing to the full program. If you want to upgrade, just let us know and we'll walk you through the mentorship options. Previous service payments may be applied as credit.</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-header">
-            <div class="faq-q">What happens if I'm not satisfied with the work?</div>
-            <div class="faq-icon">+</div>
-          </div>
-          <div class="faq-body">We don't close out a project until you're happy. If something isn't right, we revise it. Our reputation is built on real results, not one-and-done transactions. We stay in communication throughout the entire delivery process so issues rarely arise — but when they do, we fix them.</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-header">
-            <div class="faq-q">How do I pay and is it secure?</div>
-            <div class="faq-icon">+</div>
-          </div>
-          <div class="faq-body">Payment details will be discussed once we've sent you your quote and you're ready to move forward. We typically work with milestone-based payments for larger projects — you pay a portion upfront and the rest on delivery. We'll walk you through everything clearly before any money changes hands.</div>
+          <div class="faq-body">You'll have access to our private Discord community, direct messaging with your mentor, and weekly group calls. Support is ongoing — not just at the start.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- CTA -->
   <section id="cta">
     <div class="container">
       <div class="cta-inner reveal">
-        <div class="section-label" style="display:inline-block; margin-bottom:1.5rem;">Start Today</div>
-        <h2>Stop Letting One Missing<br /><em>Piece Hold You Back</em></h2>
-        <p>Whether you're starting from zero or scaling past a plateau — there's one thing that needs to be fixed. Let's find it and fix it together.</p>
+        <div class="section-label" style="display:inline-block; margin-bottom:1.5rem;">Limited Spots Available</div>
+        <h2>Ready to Build Your<br /><em style="color:var(--gold); font-style:normal;">Profitable Empire?</em></h2>
+        <p>Join the mentorship program that has produced consistent 6 and 7-figure earners across 10+ countries.</p>
         <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-          <a href="#custom" class="btn-gold-lg">Submit Your Request</a>
-          <a href="https://wa.link/orsgt5" target="_blank" class="btn-outline-lg">💬 Chat on WhatsApp</a>
+          <a href="/apply/" target="_blank" class="btn-gold-lg">Apply for Mentorship</a>
+          <a href="/contact/" class="btn-outline-lg">Talk to the Team</a>
         </div>
       </div>
     </div>
@@ -1159,15 +1568,24 @@
       <div class="footer-inner">
         <div class="footer-brand">Brain<span>Box</span> Ecom Lab</div>
         <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="#services">Services</a>
-          <a href="#custom">Request Service</a>
+          <a href="#how">How It Works</a>
+          <a href="#pricing">Pricing</a>
           <a href="/contact/">Contact</a>
         </div>
         <div class="footer-copy">© 2026 BrainBox Ecom Lab. All rights reserved.</div>
       </div>
     </div>
   </footer>
+
+  <!-- LIVE NOTIFICATION POPUP -->
+  <div class="live-notif" id="live-notif">
+    <div class="notif-avatar" id="notif-avatar">A</div>
+    <div class="notif-text">
+      <strong id="notif-name">Ahmed K.</strong>
+      <span id="notif-action">just applied for the Pro Plan</span>
+      <span class="notif-time" id="notif-time">2 minutes ago</span>
+    </div>
+  </div>
 
   <!-- FLOATING WHATSAPP -->
   <div class="wa-float">
@@ -1185,18 +1603,24 @@
       hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
-    document.querySelectorAll('.mobile-menu a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
+    function closeMobile() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Show nav CTA on desktop
+    const navCta = document.getElementById('nav-cta');
+    function checkDesktop() {
+      navCta.style.display = window.innerWidth > 900 ? 'inline-flex' : 'none';
+    }
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12 });
     reveals.forEach(el => io.observe(el));
 
     // FAQ toggle
@@ -1206,26 +1630,124 @@
       if (!isOpen) el.classList.add('open');
     }
 
+    // Mobile anchor scroll close
+    document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a => {
+      a.addEventListener('click', closeMobile);
+    });
+
+    // Spots counter
+    const spots = Math.floor(Math.random() * 3) + 3;
+    document.getElementById('spots-count').textContent = spots + ' spot' + (spots === 1 ? '' : 's');
+
+    // ── ANIMATED STUDENT COUNTERS ──
+    function animateCounter(el, target, prefix, suffix, duration) {
+      if (!el) return;
+      let start = 0;
+      const startTime = performance.now();
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        el.textContent = prefix + current + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = prefix + target + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Trigger counters when hero is visible
+    const heroCounterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCounter(document.getElementById('counter-students'), 500, '', '+', 1800);
+          animateCounter(document.getElementById('counter-revenue'), 1, '$', 'K+', 1400);
+          animateCounter(document.getElementById('counter-countries'), 10, '', '+', 1200);
+          heroCounterObs.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    const heroStatsEl = document.querySelector('.hero-stats');
+    if (heroStatsEl) heroCounterObs.observe(heroStatsEl);
+
     // WhatsApp bubble
     setTimeout(() => {
       const bubble = document.getElementById('wa-bubble');
       if (bubble) bubble.classList.add('visible');
     }, 4000);
 
-    // Auto-hide nav on scroll
+    // ── LIVE NOTIFICATION POPUPS ──
+    const notifData = [
+      { name: 'Ahmed K.', initial: 'A', action: 'just applied for the Pro Plan', time: '2 minutes ago' },
+      { name: 'Fatima R.', initial: 'F', action: 'just enrolled in the Starter Plan', time: 'Just now' },
+      { name: 'Tariq M.', initial: 'T', action: 'just applied for the Elite Plan', time: '4 minutes ago' },
+      { name: 'Zara O.', initial: 'Z', action: 'just joined the Pro community', time: '1 minute ago' },
+      { name: 'Bilal S.', initial: 'B', action: 'just applied for the Pro Plan', time: '3 minutes ago' },
+      { name: 'Nadia H.', initial: 'N', action: 'just enrolled — welcome!', time: 'Just now' },
+      { name: 'Omar A.', initial: 'O', action: 'just started the Starter Plan', time: '5 minutes ago' },
+      { name: 'Layla K.', initial: 'L', action: 'just applied for mentorship', time: '2 minutes ago' },
+    ];
+    let notifIndex = 0;
+    function showNotif() {
+      const el = document.getElementById('live-notif');
+      const data = notifData[notifIndex % notifData.length];
+      document.getElementById('notif-avatar').textContent = data.initial;
+      document.getElementById('notif-name').textContent = data.name;
+      document.getElementById('notif-action').textContent = data.action;
+      document.getElementById('notif-time').textContent = data.time;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 4500);
+      notifIndex++;
+    }
+    setTimeout(() => { showNotif(); setInterval(showNotif, 12000); }, 6000);
+
+    // ── STAR RATING BAR ANIMATION ──
+    const ratingBlock = document.getElementById('rating-block');
+    if (ratingBlock) {
+      const ratingObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            document.querySelectorAll('.rating-bar-fill').forEach(bar => {
+              bar.style.width = bar.dataset.width;
+            });
+            ratingObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      ratingObs.observe(ratingBlock);
+    }
+  </script>
+
+  <script>
+    // Auto-hide nav on scroll down, reveal on scroll up
     (function() {
       var lastY = 0;
-      var nav = document.getElementById('main-nav');
-      var navH = nav ? nav.offsetHeight : 80;
+      var nav = document.querySelector('nav');
+      var spotsBar = document.getElementById('spots-bar');
+      var navH = nav ? nav.offsetHeight : 72;
+      var spotsH = spotsBar ? spotsBar.offsetHeight : 0;
+      var totalH = navH + spotsH;
       var ticking = false;
+
       window.addEventListener('scroll', function() {
         if (!ticking) {
           requestAnimationFrame(function() {
             var y = window.scrollY;
-            if (y > navH) {
-              nav.style.transform = y > lastY ? 'translateY(-100%)' : 'translateY(0)';
+            if (y > totalH) {
+              if (y > lastY) {
+                // Scrolling DOWN — hide nav (and spots bar)
+                if (nav) nav.style.transform = 'translateY(-' + (navH + spotsH) + 'px)';
+                if (spotsBar) spotsBar.style.transform = 'translateY(-100%)';
+              } else {
+                // Scrolling UP — show nav (spots bar stays hidden for cleanliness)
+                if (nav) nav.style.transform = 'translateY(-' + spotsH + 'px)';
+                if (spotsBar) spotsBar.style.transform = 'translateY(0)';
+              }
             } else {
-              nav.style.transform = '';
+              // Near top — show everything
+              if (nav) nav.style.transform = '';
+              if (spotsBar) spotsBar.style.transform = '';
             }
             lastY = y;
             ticking = false;
@@ -1234,56 +1756,6 @@
         }
       }, { passive: true });
     })();
-
-    // Formspree async submission
-    const serviceForm = document.getElementById('serviceRequestForm');
-    if (serviceForm) {
-      serviceForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        function validateReq(inputId, groupId, check) {
-          const el = document.getElementById(inputId);
-          const group = document.getElementById(groupId);
-          const ok = check(el.value.trim());
-          group.classList.toggle('has-form-error', !ok);
-          return ok;
-        }
-        let valid = true;
-        valid = validateReq('req-name', 'group-name', v => v.length > 0) && valid;
-        valid = validateReq('req-contact', 'group-contact', v => v.length > 4) && valid;
-        valid = validateReq('req-situation', 'group-situation', v => v.length > 10) && valid;
-        if (!valid) {
-          serviceForm.querySelector('.has-form-error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          return;
-        }
-
-        const btn = document.getElementById('req-submit-btn');
-        const btnText = btn.querySelector('.req-btn-text');
-        const spinner = btn.querySelector('.req-spinner');
-        btn.disabled = true;
-        btnText.style.display = 'none';
-        spinner.style.display = 'inline-block';
-
-        try {
-          const data = new FormData(serviceForm);
-          const res = await fetch(serviceForm.action, {
-            method: 'POST', body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-          if (res.ok) {
-            document.getElementById('apply-form').style.display = 'none';
-            document.getElementById('form-success').classList.add('show');
-          } else {
-            throw new Error('Server error');
-          }
-        } catch {
-          btn.disabled = false;
-          btnText.style.display = 'inline';
-          spinner.style.display = 'none';
-          alert('Something went wrong. Please try again or reach out on WhatsApp.');
-        }
-      });
-    }
   </script>
 </body>
 </html>
